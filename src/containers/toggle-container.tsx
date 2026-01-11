@@ -7,12 +7,12 @@ import {
 } from "@/components/ui/sheet"
 import { Menu } from "lucide-react"
 import { NavigationRoutes } from "../components/navigation-routes"
-import { useAuth } from "@clerk/clerk-react";
+import { useAuthContext } from "@/context/auth-context";
 import { NavLink } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
 export const ToggleContainer = () => {
-  const {userId} = useAuth();
+  const { userId } = useAuthContext();
   return (
     <Sheet>
       <SheetTrigger className="block md:hidden">

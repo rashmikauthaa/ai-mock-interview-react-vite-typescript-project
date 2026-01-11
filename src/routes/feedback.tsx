@@ -8,7 +8,7 @@ import {
   query,
   where,
 } from "firebase/firestore";
-import { useAuth } from "@clerk/clerk-react";
+import { useAuthContext } from "@/context/auth-context";
 
 import { LoaderPage } from "./loader-page";
 import { CustomBreadCrumb } from "@/components/custom-bread-crumb";
@@ -37,7 +37,7 @@ export const Feedback = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [feedbacks, setFeedbacks] = useState<UserAnswer[]>([]);
   const [activeFeed, setActiveFeed] = useState("");
-  const { userId } = useAuth();
+  const { userId } = useAuthContext();
   const navigate = useNavigate();
 
   if (!interviewId) {

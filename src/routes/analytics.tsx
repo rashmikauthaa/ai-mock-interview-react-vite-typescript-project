@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useAuth } from "@clerk/clerk-react";
+import { useAuthContext } from "@/context/auth-context";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "@/config/firebase.config";
 import { StatCard } from "@/components/stat-card";
@@ -20,7 +20,7 @@ import { toast } from "sonner";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const Analytics = () => {
-  const { userId } = useAuth();
+  const { userId } = useAuthContext();
   const [loading, setLoading] = useState(true);
   const [stats, setStats] = useState({
     totalInterviews: 0,

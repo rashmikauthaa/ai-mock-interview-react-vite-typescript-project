@@ -5,7 +5,7 @@ import { z } from "zod";
 import type { Interview } from "@/types";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "@clerk/clerk-react";
+import { useAuthContext } from "@/context/auth-context";
 import { CustomBreadCrumb } from "@/components/custom-bread-crumb";
 import { Headings } from "@/components/headings";
 import { Button } from "@/components/ui/button";
@@ -64,7 +64,7 @@ export const FormMockInterview = ({ initialData }: FormMockInterview) => {
   const { isValid, isSubmitting } = form.formState;
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
-  const { userId } = useAuth();
+  const { userId } = useAuthContext();
 
   const title = initialData
     ? initialData.position

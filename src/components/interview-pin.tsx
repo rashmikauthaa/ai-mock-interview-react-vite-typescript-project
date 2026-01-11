@@ -21,7 +21,7 @@ import {
   writeBatch,
 } from "firebase/firestore";
 import { db } from "@/config/firebase.config";
-import { useAuth } from "@clerk/clerk-react";
+import { useAuthContext } from "@/context/auth-context";
 import { handleError } from "@/lib/helpers";
 
 interface InterviewPinProps {
@@ -36,7 +36,7 @@ export const InterviewPin = ({
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
-  const { userId } = useAuth();
+  const { userId } = useAuthContext();
   const onDelete = async () => {
     setLoading(true);
 

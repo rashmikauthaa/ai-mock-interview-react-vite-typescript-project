@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { useAuth } from "@clerk/clerk-react";
+import { useAuthContext } from "@/context/auth-context";
 import { Container } from "./container";
 import { LogoContainer } from "./logo-container";
 import { NavigationRoutes } from "./navigation-routes";
@@ -10,7 +10,7 @@ import { ThemeToggle } from "./theme-toggle";
 
 
 const Header = () => {
-  const { userId } = useAuth();
+  const { userId } = useAuthContext();
 
   return (
     <header

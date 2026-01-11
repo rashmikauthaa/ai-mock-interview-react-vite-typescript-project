@@ -6,7 +6,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Input } from "@/components/ui/input";
 import { db } from "@/config/firebase.config";
 import type { Interview } from "@/types";
-import { useAuth } from "@clerk/clerk-react";
+import { useAuthContext } from "@/context/auth-context";
 import { collection, onSnapshot, query, where } from "firebase/firestore";
 import { Plus, Search, X } from "lucide-react";
 import { useEffect, useState, useMemo } from "react";
@@ -21,7 +21,7 @@ export const Dashboard = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filterTechStack, setFilterTechStack] = useState<string>("");
 
-  const { userId } = useAuth();
+  const { userId } = useAuthContext();
 
   useEffect(() => {
     // set upa realtime listener even for the interviews collection where the userId matches
@@ -187,9 +187,9 @@ export const Dashboard = () => {
         ) : (
           <div className="md:col-span-3 w-full flex flex-grow items-center justify-center h-96 flex-col">
             <img
-              src="/svg/not-found.svg"
+              src="/assets/svg/not-found.svg"
               className="w-44 h-44 object-contain"
-              alt=""
+              alt="No interviews found"
             />
 
             <h2 className="text-lg font-semibold text-muted-foreground">

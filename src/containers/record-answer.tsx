@@ -29,7 +29,7 @@ import {
   where,
 } from "firebase/firestore";
 import { db } from "@/config/firebase.config";
-import { useAuth } from "@clerk/clerk-react";
+import { useAuthContext } from "@/context/auth-context";
 import { useParams } from "react-router-dom";
 import { cleanJsonResponse, handleError } from "@/lib/helpers";
 
@@ -66,7 +66,7 @@ export const RecordAnswer = ({
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const { userId } = useAuth();
+  const { userId } = useAuthContext();
   const { interviewId } = useParams();
 
   const recordUserAnswer = async () => {
