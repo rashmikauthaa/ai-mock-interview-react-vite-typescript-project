@@ -1,7 +1,7 @@
 import { useAuth, UserButton } from "@clerk/clerk-react"
 import { Loader } from "lucide-react"
-import { Button } from "./button"
-import { Link } from "react-router-dom"   // ✅ You forgot this import
+import { Button } from "../components/button"
+import { Link } from "react-router-dom"
 
 export const ProfileContainer = () => {
   const { isSignedIn, isLoaded } = useAuth()
@@ -10,7 +10,6 @@ export const ProfileContainer = () => {
     return (
       <div className="flex items-center">
         <Loader className="w-4 h-4 animate-spin text-emerald-500" /> 
-        {/* ✅ Changed min-w/min-h to w/h (min-w doesn't make sense for icons) */}
       </div>
     )
   }

@@ -4,8 +4,9 @@ import { Container } from "./container";
 import { LogoContainer } from "./logo-container";
 import { NavigationRoutes } from "./navigation-routes";
 import { NavLink } from "react-router-dom";
-import { ProfileContainer } from "./profile-container";
-import { ToggleContainer } from "./toggle-container";
+import { ProfileContainer } from "../containers/profile-container";
+import { ToggleContainer } from "../containers/toggle-container";
+import { ThemeToggle } from "./theme-toggle";
 
 
 const Header = () => {
@@ -27,8 +28,8 @@ const Header = () => {
               <NavLink to={"/generate"}
                 className={({ isActive }) =>
                   cn(
-                    "text-base text-neutral-500",
-                    isActive && "text-neutral-900 font-semibold"
+                    "text-base text-muted-foreground",
+                    isActive && "text-foreground font-semibold"
                   )
                 }
               >
@@ -37,8 +38,10 @@ const Header = () => {
             )}
           </nav>
 
-          {/* profile section */}
           <div className="ml-auto flex items-center gap-6">
+            {/* theme toggle */}
+            <ThemeToggle />
+
             {/* profile section*/}
             <ProfileContainer />
 

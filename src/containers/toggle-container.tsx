@@ -6,7 +6,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { Menu } from "lucide-react"
-import { NavigationRoutes } from "./navigation-routes"
+import { NavigationRoutes } from "../components/navigation-routes"
 import { useAuth } from "@clerk/clerk-react";
 import { NavLink } from "react-router-dom";
 import { cn } from "@/lib/utils";
@@ -29,8 +29,8 @@ export const ToggleContainer = () => {
               <NavLink to={"/generate"}
                 className={({ isActive }) =>
                   cn(
-                    "text-base text-neutral-600",
-                    isActive && "text-neutral-900 font-semibold"
+                    "text-base text-muted-foreground",
+                    isActive && "text-foreground font-semibold"
                   )
                 }
               >

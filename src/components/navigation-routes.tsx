@@ -14,10 +14,10 @@ export const NavigationRoutes = ({ isMobile = false }: NavigationRoutesProps) =>
           <NavLink
             to={route.href}
             className={({ isActive }) =>
-              cn(
-                "text-base text-neutral-500",
-                isActive && "text-neutral-900 font-semibold"
-              )
+                cn(
+                  "text-base text-muted-foreground",
+                  isActive && "text-foreground font-semibold"
+                )
             }
           >
             {route.label}

@@ -5,6 +5,7 @@ import { doc, getDoc, setDoc, serverTimestamp } from "firebase/firestore"
 import { useLocation, useNavigate } from "react-router-dom"
 import { db } from "@/config/firebase.config"
 import type { User } from "@/types"
+import { handleError } from "@/lib/helpers"
 
 const AuthHandler = () => {
   const { isSignedIn } = useAuth()
@@ -35,7 +36,9 @@ const AuthHandler = () => {
             await setDoc(doc(db, "users", user.id), userData)
           }
         } catch (error) {
-          console.log("Error storing the user data: ", error);
+          // Silently handle user data storage errors to avoid disrupting auth flow
+          // Errors are logged but don't show toasts to prevent UX disruption
+          handleError(error, "Failed to store user data");
         } finally {
           setLoading(false);
         }

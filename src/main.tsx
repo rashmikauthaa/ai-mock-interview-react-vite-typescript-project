@@ -1,7 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-
+import { ToastProvider } from "@/provider/toast-provider"
 import { ClerkProvider } from '@clerk/clerk-react'
+import { ThemeProvider } from 'next-themes'
 
 import './index.css'
 import App from './App.tsx'
@@ -15,8 +16,11 @@ if (!PUBLISHABLE_KEY) {
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
         <App />
-    </ClerkProvider>
+        <ToastProvider />
+      </ClerkProvider>
+    </ThemeProvider>
   </StrictMode>,
 );
