@@ -1,17 +1,10 @@
-import { Sparkles, Zap, Target, BarChart3 } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import Marquee from "react-fast-marquee";
 
 import { Container } from "@/components/container";
 import { Button } from "@/components/button";
 import { MarqueImg } from "@/components/marquee-img";
 import { Link } from "react-router-dom";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 
 export const HomePage = () => {
   return (

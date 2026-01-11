@@ -93,18 +93,6 @@ export const Dashboard = () => {
     return Array.from(stacks).sort();
   }, [interviews]);
 
-  // Calculate quick stats
-  const stats = useMemo(() => {
-    const totalInterviews = interviews.length;
-    const totalQuestions = interviews.reduce(
-      (sum, interview) => sum + (interview.questions?.length || 0),
-      0
-    );
-    const uniqueTechStacks = techStacks.length;
-
-    return { totalInterviews, totalQuestions, uniqueTechStacks };
-  }, [interviews, techStacks]);
-
   return (
     <>
       <div className="flex w-full items-center justify-between flex-wrap gap-4">

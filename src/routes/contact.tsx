@@ -66,11 +66,12 @@ export const ContactPage = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const onSubmit = async (data: ContactFormData) => {
+  const onSubmit = async (_data: ContactFormData) => {
     setIsSubmitting(true);
 
     try {
       // Simulate form submission - Replace with actual API call
+      // In production, use _data to send the form data to your API
       await new Promise((resolve) => setTimeout(resolve, 1000));
       
       toast.success("Message sent successfully!", {

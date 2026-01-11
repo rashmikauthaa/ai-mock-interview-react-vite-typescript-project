@@ -1,18 +1,10 @@
 import { Container } from "@/components/container";
 import { Button } from "@/components/ui/button";
-import { Home, ArrowLeft, Search } from "lucide-react";
+import { Home, ArrowLeft } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const NotFound = () => {
   const navigate = useNavigate();
-
-  const quickLinks = [
-    { label: "Home", path: "/" },
-    { label: "Services", path: "/services" },
-    { label: "About Us", path: "/about" },
-    { label: "Contact", path: "/contact" },
-  ];
 
   return (
     <div className="w-full min-h-screen flex items-center justify-center py-12">
