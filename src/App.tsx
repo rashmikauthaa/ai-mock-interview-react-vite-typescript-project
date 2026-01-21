@@ -18,7 +18,7 @@ import AboutPage from "./routes/about";
 import ServicesPage from "./routes/services";
 import ContactPage from "./routes/contact";
 import { Analytics } from "./routes/analytics";
-import { ATSScorePage } from "./routes/ats-score";
+import { ResumeAnalysisPage } from "./routes/resume-analysis";
 import NotFound from "./routes/not-found";
 import { ScrollToTop } from "./components/scroll-to-top";
 
@@ -65,7 +65,7 @@ const App = () => {
           </Route>
           
           {/* Resume Analysis */}
-          <Route path="/ats-score" element={<ATSScorePage />} />
+          <Route path="/ats-score" element={<ResumeAnalysisPage />} />
         </Route>
 
         {/* 404 Route - Catch all unmatched routes */}

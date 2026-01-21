@@ -26,7 +26,7 @@ import { toast } from "sonner";
 import { matchResume, type ATSMatchResult } from "@/lib/ats-api";
 import { handleError } from "@/lib/helpers";
 
-export const ATSScorePage = () => {
+export const ResumeAnalysisPage = () => {
   const [resumeFile, setResumeFile] = useState<File | null>(null);
   const [jobDescription, setJobDescription] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -342,15 +342,15 @@ export const ATSScorePage = () => {
                 <CardHeader>
                   <CardTitle>Results Will Appear Here</CardTitle>
                   <CardDescription>
-                    Upload your resume and job description, then click "Check your resume analytics" to
-                    see your analysis results.
+                    Upload your resume and job description, then click "Analyse your resume" to
+                    see your Analytics.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-col items-center justify-center py-12 text-center">
                     <FileText className="w-16 h-16 text-muted-foreground mb-4" />
                     <p className="text-muted-foreground">
-                      Your Resume Analysis and detailed feedback will appear here after analysis.
+                      Your Resume Analysis and detailed feedback will appear here.
                     </p>
                   </div>
                 </CardContent>
