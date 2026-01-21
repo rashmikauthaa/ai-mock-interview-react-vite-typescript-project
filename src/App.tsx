@@ -18,6 +18,7 @@ import AboutPage from "./routes/about";
 import ServicesPage from "./routes/services";
 import ContactPage from "./routes/contact";
 import { Analytics } from "./routes/analytics";
+import { ATSScorePage } from "./routes/ats-score";
 import NotFound from "./routes/not-found";
 import { ScrollToTop } from "./components/scroll-to-top";
 
@@ -62,6 +63,9 @@ const App = () => {
             />
             <Route path="feedback/:interviewId" element={<Feedback />} />
           </Route>
+          
+          {/* Resume Analysis */}
+          <Route path="/ats-score" element={<ATSScorePage />} />
         </Route>
 
         {/* 404 Route - Catch all unmatched routes */}
