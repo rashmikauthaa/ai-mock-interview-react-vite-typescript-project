@@ -89,7 +89,7 @@ export const ResumeAnalysisPage = () => {
       if (isNetworkError) {
         toast.error("Connection Error", {
           description:
-            "Could not connect to the server. Make sure the backend is running on http://localhost:8000",
+            "Could not connect to the server.",
         });
       } else {
         toast.error("Error", {

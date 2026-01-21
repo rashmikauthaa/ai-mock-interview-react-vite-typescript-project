@@ -36,7 +36,7 @@ const Header = () => {
                 >
                   Take an Interview
                 </NavLink>
-                <NavLink to={"/ats-score"}
+                <NavLink to={"/resume-analysis"}
                   className={({ isActive }) =>
                     cn(
                       "text-base text-muted-foreground",

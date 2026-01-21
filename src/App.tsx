@@ -65,7 +65,7 @@ const App = () => {
           </Route>
           
           {/* Resume Analysis */}
-          <Route path="/ats-score" element={<ResumeAnalysisPage />} />
+          <Route path="/resume-analysis" element={<ResumeAnalysisPage />} />
         </Route>
 
         {/* 404 Route - Catch all unmatched routes */}
