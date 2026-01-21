@@ -2,8 +2,7 @@
  * API service for ATS Resume Matcher backend
  */
 
-const ATS_API_URL = import.meta.env.VITE_ATS_API_URL || "http://localhost:8000";
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 export interface ATSMatchResult {
   score: number;
   feedback: string;
@@ -47,7 +46,7 @@ export const matchResume = async (
   formData.append("job_description", jobDescription);
 
   try {
-    const response = await fetch(`${ATS_API_URL}/match_resume`, {
+    const response = await fetch(`${API_BASE_URL}/match_resume`, {
       method: "POST",
       body: formData,
     });
