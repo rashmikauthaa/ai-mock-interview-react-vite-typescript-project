@@ -31,7 +31,7 @@ import {
 import { db } from "@/config/firebase.config";
 import { useAuthContext } from "@/context/auth-context";
 import { useParams } from "react-router-dom";
-import { cleanJsonResponse, handleError } from "@/lib/helpers";
+import { handleError } from "@/lib/helpers";
 
 interface RecordAnswerProps {
   question: { question: string; answer: string };
