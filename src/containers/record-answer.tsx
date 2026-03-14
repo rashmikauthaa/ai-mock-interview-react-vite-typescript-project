@@ -102,19 +102,45 @@ export const RecordAnswer = ({
     setIsAiGenerating(true);
 
     const prompt = `
+      You are an expert technical interviewer.
+
       Question: "${qst}"
       User Answer: "${userAns}"
-      Correct Answer: "${qstAns}"
-      Please compare the user's answer to the correct answer, and provide a rating (from 1 to 10) based on answer quality, and offer feedback for improvement.
-      Return the result in JSON format with the fields "ratings" (number) and "feedback" (string).
+      Ideal / Correct Answer: "${qstAns}"
+
+      TASK:
+      - Compare the user's answer with the ideal answer.
+      - Give a numeric score from 1 to 10 in the "ratings" field.
+      - Give short, practical improvement advice in the "feedback" field.
+
+      OUTPUT FORMAT (STRICT):
+      Return ONLY a valid JSON object of this shape, with no markdown, no backticks, and no additional text:
+      {
+        "ratings": 7,
+        "feedback": "Short feedback here..."
+      }
     `;
 
     try {
       const aiResult = await chatSession.sendMessage(prompt);
 
-      const parsedResult = cleanJsonResponse(
-        aiResult.response.text()
-      ) as unknown;
+      const rawText = aiResult.response.text();
+
+      let parsedResult: unknown;
+
+      try {
+        // Since responseMimeType is application/json, this should already be pure JSON
+        parsedResult = JSON.parse(rawText);
+      } catch {
+        // Fallback: try to clean up any accidental markdown/code fences,
+        // then parse again as a plain JSON object.
+        const cleanedText = rawText
+          .trim()
+          .replace(/```json|```/gi, "")
+          .trim();
+
+        parsedResult = JSON.parse(cleanedText);
+      }
       
       // Validate the parsed result is an AIResponse
       if (
